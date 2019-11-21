@@ -73,7 +73,7 @@ def create_file(path):
 
 def get_info(tag, n, language, path, reject=[]):
     create_file(path)
-    df = pd.DataFrame(columns=['email', 'link', 'phone',], index=[0])
+    df = pd.DataFrame(columns=['email', 'link',], index=[0])
     df.transpose()
     df.to_csv(path, mode='w', header=True)
 
@@ -87,7 +87,7 @@ def get_info(tag, n, language, path, reject=[]):
 
     print('Cleaning emails...')
     df = pd.read_csv(path, index_col=0)
-    df.columns = ['email', 'link', 'phone']
+    df.columns = ['email', 'link',]
     df = df.drop_duplicates(subset='email')
     df = df.reset_index(drop=True)
     df.to_csv(path, mode='w', header=True)
